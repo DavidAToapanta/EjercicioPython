@@ -71,6 +71,14 @@ def login():
             if estado["bloqueado_hasta"] != 0:
                 estado["fallos"] = 0
                 estado["bloqueado_hasta"] = 0
+
+            if not password or any(caracter not in "0123456789" for caracter in password):
+                error = "La contraseña debe contener solo números del 0 al 9."
+                return render_template("login.html", error=error), 400
+
+            if password != confirmar_password:
+                error = "Las contraseñas no coinciden."
+                return render_template("login.html", error=error), 400
             
             if password != confirmar_password:
                 error = "Las contraseñas no coinciden."
