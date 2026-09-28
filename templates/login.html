@@ -5,8 +5,17 @@
     {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
     <form method="post" action="{{ url_for('login') }}">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <label for="correo">correo</label>
+        <input
+            name="correo"
+            autocomplete="correogmail"
+        >
         <label for="usuario">Usuario</label>
-        <input id="usuario" name="usuario" autocomplete="username" required autofocus
+        <input id="usuario" 
+            name="usuario" 
+            autocomplete="username" 
+            required autofocus
                value="{{ request.form.get('usuario', '') }}">
         <label for="password">Contraseña</label>
         <input id="password" 
