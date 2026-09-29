@@ -13,5 +13,3 @@ def test_suma():
     assert suma(3,5) == 8
     assert suma(3,2) == 5
     assert suma(3,2) == 5
-
-    
